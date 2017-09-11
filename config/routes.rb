@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   resources :cities
   resources :reservations
   resources :guests
-  resources :hotels
+  resources :hotels, only: [:show, :index] do
+    get 'reservations', as: 'reservations'
+  end
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'
