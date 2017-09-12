@@ -6,17 +6,16 @@ class ReservationsController < ApplicationController
     @reservation.hotel_id = params[:hotel_id]
     @guest = Guest.find_by(id: @reservation.guest_id)
     @hotel = Hotel.find_by(id: @reservation.hotel_id)
-    byebug
-    # # @response = @reservation.take_ride
-    # # session[:response] = @response
-    # redirect_to guest_path(@guest)
+    # session[:response] = @hotel.id
   end
 
-
   def create
-    @reservation = Reservation.new(reservation_params)
     @reservation.guest_id = session[:guest_id]
-    @reservation.hotel_id = params[:hotel][:hotel_id]
+    @reservation.hotel_id = params[:hotel_id]
+    @guest = Guest.find_by(id: @reservation.guest_id)
+    @hotel = Hotel.find_by(id: @reservation.hotel_id)
+    @reservation = Reservation.new(reservation_params)
+    byebug
     if @reservation.save
       redirect_to @guest
     else
