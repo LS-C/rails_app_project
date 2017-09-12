@@ -3,17 +3,13 @@
 
 <%= form_for @reservation do |f| %>
 
-<!-- drop down menu for all hotels -->
-<%= f.label :name, "All Hotels"  %>
-<p><%= f.collection_select :hotel_id, Hotel.all, :id, :name %></p>
-
 <%= f.label :start %>
-<%= f.date_select :start %>
+<%= f.date_field :start %>
 </br>
 </br>
 
 <%= f.label :end %>
-<%= f.date_select :end %>
+<%= f.date_field :end %>
 </br>
 </br>
 
@@ -24,6 +20,8 @@
 
 <%= f.label :guest_name %>
 <%= f.text_field :guest_name %>
+
+
 </br>
 </br>
 

@@ -1,11 +1,15 @@
 class GuestsController < ApplicationController
-  before_action :require_login
+  before_action :require_login, except: [:new, :create]
 
   def index
     @guests = Guest.all
   end
 
   def show
+    # if session[:response]
+    #   @hotel = Hotel.find_by_id(id: session[:response])
+    #   session.delete(:response)
+    # end
     @guest = Guest.find(params[:id])
   end
 
@@ -19,7 +23,6 @@ class GuestsController < ApplicationController
       session[:guest_id] = @guest.id
       redirect_to guest_path(@guest)
     else
-      #re-render the form
       render :new
     end
   end
@@ -35,6 +38,9 @@ class GuestsController < ApplicationController
 
   private
 
+  # def require_login
+  #   return head(:forbidden) unless session.include? :guest_id
+  # end
 
   def guest_params
     params.require(:guest).permit(:name, :password, :password_confirmation)
