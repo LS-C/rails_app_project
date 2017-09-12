@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+    @guest = Guest.new
   end
 
   def create
@@ -9,6 +10,19 @@ class SessionsController < ApplicationController
     session[:guest_id] = @guest.id
     redirect_to guest_path(@guest)
   end
+
+
+
+#   def create
+#   @user = User.find_by(name: params[:user][:name])
+#     if @user && @user.authenticate(params[:user][:password])
+#       session[:user_id] = @user.id
+#       redirect_to user_path(@user)
+#     else
+#       render :new
+#     end
+# end
+
 
   def destroy
     session.delete(:guest_id)

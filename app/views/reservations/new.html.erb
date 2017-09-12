@@ -1,21 +1,32 @@
+<h2> <%= @hotel.name %> </h2>
+<h3> Make a Reservation </h3>
+
 <%= form_for @reservation do |f| %>
+
+<!-- drop down menu for all hotels -->
+<%= f.label :name, "All Hotels"  %>
+<p><%= f.collection_select :hotel_id, Hotel.all, :id, :name %></p>
 
 <%= f.label :start %>
 <%= f.date_select :start %>
+</br>
+</br>
 
 <%= f.label :end %>
 <%= f.date_select :end %>
+</br>
+</br>
 
 <%= f.label :room_type %>
 <%= f.select :room_type, options_for_select(['single room', 'double room']) %>
+</br>
+</br>
 
-<%= f.label :guest_name1 %>
-<%= f.text_field :guest_name1 %>
+<%= f.label :guest_name %>
+<%= f.text_field :guest_name %>
+</br>
+</br>
 
-<%= f.label :guest_name2 %>
-<%= f.text_field :guest_name2 %>
-
-<%= f.submit %>
-
+<%= f.submit "Book this hotel" %>
 
 <%end %>

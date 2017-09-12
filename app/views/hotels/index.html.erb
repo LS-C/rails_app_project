@@ -1,3 +1,9 @@
+<h2> Check out all our partner hotels... </h2>
+
 <% @hotels.each do |hotel| %>
-<ul><%= link_to hotel.name, hotel_path(hotel) %></ul>
+<ul type="disc">
+  <li>
+  <%= link_to hotel.name, hotel_path(hotel) %>
+  </li>
+</ul>
 <% end %>
