@@ -11,3 +11,13 @@
   <%= hidden_field_tag :hotel_id, @hotel.id %>
   <input type="submit" value="Book this hotel">
 <%end %>
+
+</br>
+
+<h3>Most Recent Reviews... </h3>
+</br>
+<% @all_reviews_for_this_hotel.each do |review| %>
+<h4><%= review.title %></br></h4>
+<i><%= review.content %></br></i>
+</br>
+<% end %></br>
