@@ -9,10 +9,10 @@ class HotelsController < ApplicationController
     @hotel = Hotel.find(params[:id])
     @reviews = Review.all
     @hotel.reservations
-    all_reviews_for_this_hotel = @hotel.reservations.collect do |reservation|
+    @all_reviews_for_this_hotel = @hotel.reservations.collect do |reservation|
       reservation.reviews
     end
-    # byebug
-  end
+    flattened = @all_reviews_for_this_hotel.flatten
+    end
 
-end
+  end
