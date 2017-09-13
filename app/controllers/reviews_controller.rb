@@ -3,15 +3,18 @@ class ReviewsController < ApplicationController
     def new
         @review = Review.new
         session[:reservation_id] = params[:reservation_id]
+        @review.reservation_id = session[:reservation_id]
     end
 
     def create
         @review = Review.new(review_params)
         @review.reservation_id = session[:reservation_id].to_i
+        # byebug
         session.delete(:reservation_id)
-
         if @review.save
-            redirect_to hotel_path
+          @reservation = Reservation.find_by(id: @review.reservation_id)
+          @hotel = Hotel.find_by(id: @reservation.hotel_id)
+            redirect_to hotel_path(@hotel)
         else
             render :new
         end
