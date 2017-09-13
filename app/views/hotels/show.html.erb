@@ -1,5 +1,11 @@
 <h2><%= @hotel.name %></h2>
+
+<p>Address:<%= @hotel.address %></p>
+<p>Tel:<%= @hotel.tel %></p>
+
+<p>About <%= @hotel.name %> </p>
 <p><%= @hotel.description %></p>
+
 
 <%= form_tag new_reservation_path do %>
   <%= hidden_field_tag :hotel_id, @hotel.id %>
