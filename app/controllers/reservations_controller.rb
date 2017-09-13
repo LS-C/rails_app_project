@@ -2,11 +2,12 @@ class ReservationsController < ApplicationController
 
   def new
     @reservation = Reservation.new
-    @reservation.guest_id = session[:guest_id]
-    @reservation.hotel_id = params[:hotel_id]
-    @guest = Guest.find_by(id: @reservation.guest_id)
-    @hotel = Hotel.find_by(id: @reservation.hotel_id)
+    # @reservation.guest_id = session[:guest_id]
+    # @reservation.hotel_id = params[:hotel_id]
+    # @guest = Guest.find_by(id: @reservation.guest_id)
+    # @hotel = Hotel.find_by(id: @reservation.hotel_id)
     # session[:response] = @hotel.id
+    # byebug
   end
 
   def create
