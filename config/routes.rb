@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   post '/signin', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
   post '/reservations/new', to: 'reservations#new'
+  post '/reviews/new', to: 'reviews#new'
+
 
   # patch '/reservation', to: 'reservations#new', as: 'reservation'
 end

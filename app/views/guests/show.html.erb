@@ -1,4 +1,32 @@
 
 <h2>Welcome <%=@guest.name%>!<h2>
 
+
+<% if @reservations %>
+
+<h2>Your hotel reservation history: </h2>
+
+    <% @reservations.each do |rsvp| %>
+    <div class="reservation">
+        <p>Hotel: <%= rsvp.hotel.name %></p>
+        <p>City: <%= rsvp.hotel.city.name %></p>
+
+        <p>Check-in Date: <%= rsvp.start.to_date%></p>
+        <p>Check-Out Date:<%= rsvp.end.to_date%></p>
+
+        <% if  rsvp.start < DateTime.now %>
+        <%= form_tag new_review_path do %>
+        <%= hidden_field_tag :reservation_id, rsvp.id %>
+        <input class="button" type="submit" value="Review this hotel">
+        <% end %>
+        <% end %>
+        </div>
+
+    <% end %>
+
+<% end %>
+
+
+<br>
+<br>
 <p><%= link_to "Book a hotel", hotels_path %></p>
