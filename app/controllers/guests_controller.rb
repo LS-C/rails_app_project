@@ -11,6 +11,14 @@ class GuestsController < ApplicationController
     #   session.delete(:response)
     # end
     @guest = Guest.find(params[:id])
+    @num = @guest.reservation_info
+    @reservations = @guest.reservations
+
+
+
+    # session[:hotel_rsvps] = @guest.reservation_info
+    # byebug
+    # a
   end
 
   def new
