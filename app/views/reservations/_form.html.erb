@@ -1,0 +1,28 @@
+
+<%= form_for @reservation do |f| %>
+
+<%= f.label :start %>
+<%= f.date_field :start %>
+</br>
+</br>
+
+<%= f.label :end %>
+<%= f.date_field :end %>
+</br>
+</br>
+
+<%= f.label :room_type %>
+<%= f.select :room_type, options_for_select(['single room', 'double room']) %>
+</br>
+</br>
+
+<%= f.label :guest_name %>
+<%= f.text_field :guest_name %>
+
+
+</br>
+</br>
+
+<%= f.submit "Book this hotel" %>
+
+<%end %>

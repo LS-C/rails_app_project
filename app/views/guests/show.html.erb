@@ -15,10 +15,19 @@
         <p>Check-Out Date:<%= rsvp.end.to_date%></p>
 
         <% if  rsvp.start < DateTime.now %>
-        <%= form_tag new_review_path do %>
-        <%= hidden_field_tag :reservation_id, rsvp.id %>
-        <input class="button" type="submit" value="Review this hotel">
+            <%= form_tag new_review_path do %>
+                <%= hidden_field_tag :reservation_id, rsvp.id %>
+                <input class="button" type="submit" value="Review this hotel">
+            <% end %>
+        <% else %>
+            <%= form_tag edit_reservation_path(rsvp) do %>
+                <%= hidden_field_tag :reservation_id, rsvp.id %>
+                <input class="button" type="submit" value="Edit your reservation">
         <% end %>
+
+
+
+
         <% end %>
         </div>
 

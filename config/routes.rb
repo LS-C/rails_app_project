@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   post '/reservations/new', to: 'reservations#new'
   post '/reviews/new', to: 'reviews#new'
 
+  post '/reservations/:id/edit', to: 'reservations#edit'
+
 
   # patch '/reservation', to: 'reservations#new', as: 'reservation'
 end
