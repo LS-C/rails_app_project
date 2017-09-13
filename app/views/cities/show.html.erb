@@ -4,6 +4,6 @@
 
 <% @hotels.each do |hotel| %>
 
-    <p><%= link_to hotel.name,  city_hotel_path(hotel)%></p>
+    <p><%= link_to hotel.name,  city_hotel_path(@city, hotel)%></p>
 
 <% end %>
