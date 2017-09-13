@@ -35,25 +35,6 @@ class ReservationsController < ApplicationController
 
 
   private
-  def new_rsvp
-    @reservation = Reservation.new
-  end
-
-  def new_rsvp_with_params
-    @reservation = Reservation.new(reservation_params)
-  end
-
-  def set_guest_id
-     @reservation.guest_id = session[:guest_id]
-  end
-
-  def set_hotel_id
-      @reservation.hotel_id = params[:hotel_id]
-  end
-
-
-
-
 
   def reservation_params
     params.require(:reservation).permit(:start, :end, :room_type, :guest_name)

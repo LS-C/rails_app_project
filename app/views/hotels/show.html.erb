@@ -7,7 +7,12 @@
 <p><%= @hotel.description %></p>
 
 
+
+<%= image_tag("Kimpton_nyc.jpg", :alt => "rss feed") %>
+
+
 <%= form_tag new_reservation_path do %>
   <%= hidden_field_tag :hotel_id, @hotel.id %>
   <input type="submit" value="Book this hotel">
 <%end %>
+<!--  -->
