@@ -13,7 +13,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @reservation.guest_id = session[:guest_id]
     @reservation.hotel_id = session[:hotel_id]
-    session.delete(:hotel_id)
+
     @guest = Guest.find_by(id: @reservation.guest_id)
     @hotel = Hotel.find_by(id: @reservation.hotel_id)
     if @reservation.save
@@ -23,15 +23,27 @@ class ReservationsController < ApplicationController
     end
   end
 
-  # def edit
-  #   @reservation = Reservation.find(params[:id])
-  # end
+  def edit
+    @reservation = Reservation.find(params[:id])
+    @reservation.guest_id = session[:guest_id]
+    session[:hotel_id] = @reservation.hotel_id
+    @hotel = Hotel.find_by(id: session[:hotel_id])
+  end
 
-  # def update
-  #   @reservation = Reservation.find(params[:id])
-  #   @reservation.update(reservation_params)
-  #   redirect_to @guest
-  # end
+  def update
+    @reservation = Reservation.find(params[:id])
+    @reservation.guest_id = session[:guest_id]
+    @reservation.hotel_id = session[:hotel_id]
+    session.delete(:hotel_id)
+    @guest = Guest.find_by(id: @reservation.guest_id)
+    @hotel = Hotel.find_by(id: @reservation.hotel_id)
+    session.delete(:hotel_id)
+    if @reservation.update(reservation_params)
+      redirect_to @guest
+    else
+      render :edit
+    end
+  end
 
 
   private

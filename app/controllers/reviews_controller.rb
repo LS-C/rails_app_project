@@ -9,7 +9,6 @@ class ReviewsController < ApplicationController
     def create
         @review = Review.new(review_params)
         @review.reservation_id = session[:reservation_id].to_i
-        # byebug
         session.delete(:reservation_id)
         if @review.save
           @reservation = Reservation.find_by(id: @review.reservation_id)
