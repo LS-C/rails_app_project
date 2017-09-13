@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :reviews
-  resources :cities
+  resources :cities do
+    resources :hotels
+  end
   resources :reservations
   resources :guests
   resources :hotels
