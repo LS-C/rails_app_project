@@ -7,8 +7,7 @@
 <p><%= @hotel.description %></p>
 
 
-
-<%= image_tag("Kimpton_nyc.jpg", :alt => "rss feed") %>
+<%= image_tag(@hotel.image_url, :alt => "rss feed") %>
 
 
 <%= form_tag new_reservation_path do %>
