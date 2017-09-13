@@ -5,7 +5,8 @@
   <%= text_field_tag :name %><br>
 
   <label>Password:</label><br>
-  <%= text_field_tag :password %><br>
+  <%= text_field_tag :password %><br><br>
 
-  <%= submit_tag "Sign In" %>
+  <%= submit_tag "Sign In" %><br><br>
+  <%= link_to "New User? Sign Up!", new_guest_path %>
 <% end %>

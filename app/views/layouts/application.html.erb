@@ -29,7 +29,13 @@ input.button {
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="<%= signin_path %> ">Hotel App</a>
+      <% if logged_in? %>
+        <a class="navbar-brand" href="<%= guest_path(session[:guest_id]) %> ">Hotel App</a>
+      <% else %>
+        <a class="navbar-brand" href="<%= signin_path %> ">Hotel App</a>
+      <% end %>
+
+
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
