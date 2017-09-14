@@ -1,6 +1,8 @@
 class GuestsController < ApplicationController
   before_action :require_login, except: [:new, :create, :welcome]
 
+
+
   def welcome
   end
 
@@ -37,7 +39,7 @@ class GuestsController < ApplicationController
   end
 
    def payment
-    end
+   end
 
   def edit
     @guest = Guest.find(params[:id])
@@ -45,7 +47,7 @@ class GuestsController < ApplicationController
 
   def update
     @guest = Guest.find(session[:guest_id])
-    @guest.update(guest_update_params)
+    @guest.update(payment_params)
     if @guest.save
         redirect_to @guest
       else
@@ -61,6 +63,10 @@ class GuestsController < ApplicationController
 
   def guest_params
     params.require(:guest).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def payment_params
+    params.require(:guest).permit(:membership_type, :cc_type, :name_on_card, :credit_card, :cc_exp_date)
   end
 
   def guest_update_params

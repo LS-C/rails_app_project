@@ -14,13 +14,15 @@
 </br>
 
   <%= f.label :password, 'Password: ' %>
-  <%= f.text_field :password %>
+  <%= f.password_field :password, autocomplete: "off",
+    placeholder: raw("&bull;")%>
 
 </br>
 </br>
 
   <%= f.label :password_confirmation, 'Confirm Password: '  %>
-  <%= f.text_field :password_confirmation%>
+  <%= f.password_field :password_confirmation, autocomplete: "off",
+    placeholder: raw("&bull;")%>
 
 </br>
 </br>
