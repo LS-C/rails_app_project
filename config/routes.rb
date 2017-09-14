@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   post '/reservations/:id/edit', to: 'reservations#edit'
 
+  root :to => 'guests#welcome'
 
   # patch '/reservation', to: 'reservations#new', as: 'reservation'
 end
