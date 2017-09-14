@@ -1,30 +1,39 @@
 <div class="hotel_show_page">
 
-<h2><%= @hotel.name %></h2>
-
-
-<%= image_tag(@hotel.image_url, size: "4.76 x 5.74", :alt => "rss feed", :class => "myDiv") %></br>
-
-<br>
+<h2><b><%= @hotel.name %></b></h2><br>
 
 
 
-<p><b>Address: </b><%= @hotel.address %></p>
-<p><b>Tel: </b><%= @hotel.tel %></p>
+  <div id="myDiv">
+    <%= image_tag(@hotel.image_url, size: "4.76 x 5.74", :alt => "rss feed", :class => "myDiv") %></br>
+  </div>
 
-<p><u><b>About <%= @hotel.name %> </b></u></p>
-<p><i><%= @hotel.description %></i></p>
-</br>
+<br><br><br>
 
-<%= form_tag new_reservation_path do %>
-  <%= hidden_field_tag :hotel_id, @hotel.id %>
-  <input type="submit" value="Book this hotel">
-<%end %>
-</br>
+
+
+
+<div class="container-fluid" style="background-color:#B6B6B4">
+  <br>
+  <font color="white"><p><u><b><%= @hotel.name %> </b></u></p>
+  <p><i><%= @hotel.description %></i></p>
+  </br>
+
+  <p><b>Address: </b><%= @hotel.address %></p>
+  <p><b>Tel: </b><%= @hotel.tel %></p></font>
+
+
+  <%= form_tag new_reservation_path do %>
+    <%= hidden_field_tag :hotel_id, @hotel.id %>
+    <input type="submit" value="Book this hotel">
+  <%end %></br>
+  </div>
 </div>
 
 
-<h3>Most Recent Reviews...</h3>
-<% @all_content.each do |c| %>
-<i>"<%= c %>"</i></br></br>
-<% end %>
+<div class=".welcome_pg">
+  <h3>Most Recent Reviews...</h3>
+    <% @all_content.each do |c| %>
+      <i>"<%= c %>"</i></br></br>
+    <% end %>
+</div>
