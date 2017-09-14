@@ -20,8 +20,6 @@ class GuestsController < ApplicationController
     # session[:hotel_rsvps] = @guest.reservation_info
   end
 
-  def payment
-  end
 
 
   def new
@@ -38,13 +36,21 @@ class GuestsController < ApplicationController
     end
   end
 
+   def payment
+    end
+
   def edit
     @guest = Guest.find(params[:id])
   end
 
   def update
-    @guest = Guest.find(params[:id])
-    @guest.update(guest_params)
+    @guest = Guest.find(session[:guest_id])
+    @guest.update(guest_update_params)
+    if @guest.save
+        redirect_to @guest
+      else
+        render :payment
+      end
   end
 
   private
@@ -55,6 +61,10 @@ class GuestsController < ApplicationController
 
   def guest_params
     params.require(:guest).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def guest_update_params
+    params.require(:guest).permit(:name, :email, :password, :password_confirmation, :name_on_card, :credit_card, :cc_exp_date)
   end
 
 end
