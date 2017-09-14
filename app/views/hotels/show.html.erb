@@ -1,9 +1,11 @@
+<div class="hotel_show_page">
+
 <h2><%= @hotel.name %></h2>
 
-<div id="myDiv">
+
 <%= image_tag(@hotel.image_url, size: "4.76 x 5.74", :alt => "rss feed", :class => "myDiv") %></br>
 
-</div><br>
+<br>
 
 
 
@@ -19,6 +21,8 @@
   <input type="submit" value="Book this hotel">
 <%end %>
 </br>
+</div>
+
 
 <h3>Most Recent Reviews...</h3>
 <% @all_content.each do |c| %>
