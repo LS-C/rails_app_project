@@ -17,11 +17,7 @@ class GuestsController < ApplicationController
     @num = @guest.reservation_info
     @reservations = @guest.reservations
 
-
-
     # session[:hotel_rsvps] = @guest.reservation_info
-    # byebug
-    # a
   end
 
   def new

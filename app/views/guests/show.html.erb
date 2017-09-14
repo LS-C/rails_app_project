@@ -1,8 +1,8 @@
 
-<h2>Welcome back, <%=@guest.name%>!<h2>
+<h2>Welcome, <%=@guest.name%>!<h2>
 
 
-<% if @reservations %>
+<% if !@reservations.empty?  %>
 
 <h3>Here's hotel reservation history and upcoming reservations... </h3>
 
