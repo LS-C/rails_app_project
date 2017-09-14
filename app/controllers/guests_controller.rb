@@ -20,6 +20,10 @@ class GuestsController < ApplicationController
     # session[:hotel_rsvps] = @guest.reservation_info
   end
 
+  def payment
+  end
+
+
   def new
     @guest = Guest.new
   end
@@ -28,7 +32,7 @@ class GuestsController < ApplicationController
     @guest = Guest.new(guest_params)
     if @guest.save
       session[:guest_id] = @guest.id
-      redirect_to guest_path(@guest)
+      render :payment
     else
       render :new
     end

@@ -1,0 +1,27 @@
+
+
+<%= form_for(@guest) do |f| %>
+  <%= f.label :name_on_card, 'Name on Card: ' %> <br>
+  <%= f.text_field :name_on_card %>
+
+
+</br>
+</br>
+
+  <%= f.label :credit_card, 'Credit Card: ' %> <br>
+  <%= f.text_field :credit_card %>
+
+</br>
+</br>
+
+  <%= f.label :cc_exp_date, 'Expiration Date: ' %> <br>
+  <%= f.text_field :cc_exp_date %>
+
+</br>
+</br>
+
+  <%= f.submit "Sign up" %><br><br>
+
+  <%= link_to "Already A User? Sign In Here!", signin_path %>
+
+<% end %>
