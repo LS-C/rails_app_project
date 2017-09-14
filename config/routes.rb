@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   root :to => 'guests#welcome'
 
-  get '/guests/payment', :to => 'guests#payment'
+  post '/guests/payment', :to => 'guests#payment'
 
   # patch '/reservation', to: 'reservations#new', as: 'reservation'
 end
