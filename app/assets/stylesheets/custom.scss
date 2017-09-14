@@ -1,3 +1,31 @@
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+body, html {
+    height: 100%;
+    line-height: 1.8;
+}
+
+
+/* unvisited link */
+a:link {
+    color: #blue;
+}
+
+/* visited link */
+a:visited {
+    color: gray;
+}
+
+/* mouse over link */
+a:hover {
+    color: gray;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}
+
+
 div.reservation {
     background-color: #009696;
     color: white;
