@@ -37,7 +37,6 @@ class ReservationsController < ApplicationController
     session.delete(:hotel_id)
     @guest = Guest.find_by(id: @reservation.guest_id)
     @hotel = Hotel.find_by(id: @reservation.hotel_id)
-    session.delete(:hotel_id)
     if @reservation.update(reservation_params)
       redirect_to @guest
     else

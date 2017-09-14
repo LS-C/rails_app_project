@@ -1,25 +1,31 @@
 <h1> New Guest </h1>
 
 <%= form_for(@guest) do |f| %>
-  <%= f.label :name %>
+  <%= f.label :name, 'Full Name: ' %>
   <%= f.text_field :name %>
 
 </br>
 </br>
 
-  <%= f.label :password %>
+  <%= f.label :email, 'Email: ' %>
+  <%= f.text_field :email %>
+
+</br>
+</br>
+
+  <%= f.label :password, 'Password: ' %>
   <%= f.text_field :password %>
 
 </br>
 </br>
 
-  <%= f.label :password_confirmation %>
-  <%= f.text_field :password_confirmation %>
+  <%= f.label :password_confirmation, 'Confirm Password: '  %>
+  <%= f.text_field :password_confirmation%>
 
 </br>
 </br>
 
-  <%= f.submit %><br><br>
+  <%= f.submit "Sign up" %><br><br>
 
   <%= link_to "Already A User? Sign In Here!", signin_path %>
 <% end %>
