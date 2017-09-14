@@ -3,7 +3,7 @@
 <head>
   <title>Hotel Membership Pass</title>
 
-
+<!--
   <style>
 div.reservation {
     background-color: #009696;
@@ -37,15 +37,16 @@ input.button {
 }
 
 </style>
-
+ -->
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  <link href='https://fonts.googleapis.com/css?family=Raleway:500,900,200' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Raleway:500,900,200' rel='stylesheet' type='text/scss'>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+
+  <link rel="stylesheet" type="text/css" href="application.css">
 
 </head>
 <body>
@@ -57,9 +58,11 @@ input.button {
     </div>
     <ul class="nav navbar-nav">
       <% if logged_in? %>
-        <li class="active"><a href="<%= guest_path(session[:guest_id]) %>">Profile</a></li>
+        <li><a href="<%= guest_path(session[:guest_id]) %>">Profile</a></li>
       <% else %>
-        <li class="active"><a href="#">Welcome!</a></li>
+        <li><a href="#">Welcome!</a></li>
+        <li><a href=/cities>Membership Info</a></li>
+
       <% end %>
 
       <li><a href="<%= hotels_path %>">All Hotels</a></li>
@@ -91,6 +94,11 @@ input.button {
 <div class="container"  role="main">
   <%= yield %>
 </div>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </body>
 </html>
