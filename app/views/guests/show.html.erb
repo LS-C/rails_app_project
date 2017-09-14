@@ -1,10 +1,11 @@
 
-<h2>Welcome, <%=@guest.name%>!<h2>
+<h2>Welcome back, <%=@guest.name%>!<h2>
 
 
 <% if !@reservations.empty?  %>
 
 <h3>Here's your hotel reservation history and upcoming reservations... </h3>
+<p><h4><%= link_to "Book a hotel", hotels_path %></h4></p>
 
     <% @reservations.each do |rsvp| %>
     <div class="reservation">
@@ -12,7 +13,7 @@
         <p>City: <%= rsvp.hotel.city.name %></p>
 
         <p>Check-in Date: <%= rsvp.start.to_date%></p>
-        <p>Check-Out Date:<%= rsvp.end.to_date%></p>
+        <p>Check-Out Date: <%= rsvp.end.to_date%></p>
 
         <% if  rsvp.start < DateTime.now %>
             <%= form_tag new_review_path do %>
@@ -31,7 +32,3 @@
     <% end %>
 
 <% end %>
-
-
-<br>
-<p><%= button_to "Book a hotel", hotels_path %></p>

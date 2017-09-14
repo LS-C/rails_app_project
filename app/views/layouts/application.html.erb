@@ -60,7 +60,7 @@ input.button {
       <% if logged_in? %>
         <li><a href="<%= guest_path(session[:guest_id]) %>">Profile</a></li>
       <% else %>
-        <li><a href="#">Welcome!</a></li>
+        <li><a href="/">Welcome!</a></li>
         <li><a href=/cities>Membership Info</a></li>
 
       <% end %>
