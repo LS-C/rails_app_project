@@ -2,7 +2,10 @@
 
 <div id="myDiv">
 <%= image_tag(@hotel.image_url, size: "4.76 x 5.74", :alt => "rss feed", :class => "myDiv") %></br>
+
 </div><br>
+
+
 
 <p><b>Address: </b><%= @hotel.address %></p>
 <p><b>Tel: </b><%= @hotel.tel %></p>
@@ -16,7 +19,6 @@
   <input type="submit" value="Book this hotel">
 <%end %>
 </br>
-
 
 <h3>Most Recent Reviews...</h3>
 <% @all_content.each do |c| %>
