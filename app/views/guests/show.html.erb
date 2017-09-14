@@ -4,7 +4,7 @@
 
 <% if @reservations %>
 
-<h3>Here's hotel reservation history and upcoming reservations... </h3>
+<h3>Here's your hotel reservation history and upcoming reservations... </h3>
 
     <% @reservations.each do |rsvp| %>
     <div class="reservation">
@@ -34,5 +34,4 @@
 
 
 <br>
-<br>
-<p><%= link_to "Book a hotel", hotels_path %></p>
+<p><%= button_to "Book a hotel", hotels_path %></p>
