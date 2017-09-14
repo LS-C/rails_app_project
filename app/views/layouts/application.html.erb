@@ -15,6 +15,26 @@ div.reservation {
 input.button {
   background-color: black;
 }
+
+
+.container1 {
+  display:flex;
+  justify-content:center;
+  padding-top: 50px;
+}
+.first, .third {
+  width:200px;
+  border: solid black;
+  padding: 20px;
+  margin:10px;
+}
+.second {
+  width:200px;
+  border: solid black;
+  padding: 20px;
+  margin:10px;
+}
+
 </style>
 
 
@@ -23,22 +43,24 @@ input.button {
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link href='https://fonts.googleapis.com/css?family=Raleway:500,900,200' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <% if logged_in? %>
-        <a class="navbar-brand" href="<%= guest_path(session[:guest_id]) %> ">Hotel App</a>
-      <% else %>
-        <a class="navbar-brand" href="<%= signin_path %> ">Hotel App</a>
-      <% end %>
-
-
+        <a class="navbar-brand" href="/">Hotel App</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
+      <% if logged_in? %>
+        <li class="active"><a href="<%= guest_path(session[:guest_id]) %>">Profile</a></li>
+      <% else %>
+        <li class="active"><a href="#">Welcome!</a></li>
+      <% end %>
+
       <li><a href="<%= hotels_path %>">All Hotels</a></li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Cities <span class="caret"></span></a>
         <ul class="dropdown-menu">

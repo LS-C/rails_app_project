@@ -1,6 +1,9 @@
 class GuestsController < ApplicationController
   before_action :require_login, except: [:new, :create]
 
+  def welcome
+  end
+
   def index
     @guests = Guest.all
   end
