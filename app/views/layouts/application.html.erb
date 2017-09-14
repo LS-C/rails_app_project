@@ -7,18 +7,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-  <link href='https://fonts.googleapis.com/css?family=Raleway:500,900,200' rel='stylesheet' type='text/scss'>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,600i,700,900" rel="stylesheet">
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
 
   <link rel="stylesheet" type="text/css" href="application.css">
 
+
+
 </head>
 <body>
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-light" style="background-color:#93FFE8; color:#000000">
   <div class="container-fluid">
     <div class="navbar-header">
-        <a class="navbar-brand" href="/">Hotel App</a>
+        <a class="navbar-brand" href="/"><b>Hotel App</b></a>
     </div>
     <ul class="nav navbar-nav">
       <% if logged_in? %>
