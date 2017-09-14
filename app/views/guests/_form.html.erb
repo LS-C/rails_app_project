@@ -1,14 +1,20 @@
 
 
 <%= form_for(@guest) do |f| %>
-  <%= f.label :name_on_card, 'Name on Card: ' %> <br>
-  <%= f.text_field :name_on_card %>
 
+
+<p>Select Your Monthly Plan</p>
+<%= f.select :membership_type, options_for_select([["Silver: $50/month "], ["Gold: $90/month"], ["Platinum: $200/month"]]) %>
+
+</br>
+</br>
+<p>Credit Card Type</p>
+<%= f.select :cc_type, options_for_select([["Visa"], ["MasterCard"], ["Amex"]]) %>
 
 </br>
 </br>
 
-  <%= f.label :credit_card, 'Credit Card: ' %> <br>
+  <%= f.label :credit_card, 'Credit Card Number: ' %> <br>
   <%= f.text_field :credit_card %>
 
 </br>
@@ -20,7 +26,15 @@
 </br>
 </br>
 
+  <%= f.label :name_on_card, 'Name on Card: ' %> <br>
+  <%= f.text_field :name_on_card %>
+
+</br>
+</br>
+
   <%= f.submit "Make Payment" %><br><br>
+
+
 
   <%= link_to "Already A User? Sign In Here!", signin_path %>
 
