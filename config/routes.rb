@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :guests
   resources :hotels
 
+  get '/static/index', to: 'static#index', as: 'membership'
+
+
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
