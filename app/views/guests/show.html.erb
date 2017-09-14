@@ -1,12 +1,20 @@
+<!-- Greeting -->
+<h2><b>Nice to see you, <%=@guest.name%>.</b><h2>
 
-<h2><b>Nice to see you again, <%=@guest.name%>.</b><h2>
+<!-- Guest membership type -->
+  <% if @guest.membership_type %>
+    <h3><%= @guest.membership_type %></h3>
+  <% end %>
 
-
+<!-- List guest's reservations -->
 <% if !@reservations.empty?  %>
 
 <h3>Here's a snapshot of your upcoming trips and trip history... </h3>
-<p><h4><%= link_to "Book a hotel", hotels_path %></h4></p>
 
+<p><h4><%= link_to "Book a hotel", hotels_path %></h4></p><br>
+
+
+<h3>Upcoming Trips</h3>
     <% @reservations.each do |rsvp| %>
     <div class="reservation">
         <p>Hotel: <%= rsvp.hotel.name %></p>

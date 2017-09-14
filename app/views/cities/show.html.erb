@@ -1,9 +1,9 @@
-
-
 <h2><%= @city.name %></h2>
 
 <% @hotels.each do |hotel| %>
-
+  <ul type="disc">
+    <li>
     <p><%= link_to hotel.name,  city_hotel_path(@city, hotel)%></p>
-
+    </li>
+  </ul>
 <% end %>
