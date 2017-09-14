@@ -7,8 +7,6 @@ Rails.application.routes.draw do
   resources :guests
   resources :hotels
 
-  get '/static/index', to: 'static#index', as: 'membership'
-
 
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
@@ -19,6 +17,8 @@ Rails.application.routes.draw do
   post '/reservations/:id/edit', to: 'reservations#edit'
 
   root :to => 'guests#welcome'
+
+  get '/guests/payment', :to => 'guests#payment'
 
   # patch '/reservation', to: 'reservations#new', as: 'reservation'
 end
