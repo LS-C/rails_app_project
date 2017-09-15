@@ -37,6 +37,15 @@ class Guest < ApplicationRecord
     a=Reservation.all.select { |rsvp| rsvp.guest_id == self.id }
   end
 
+  def membership_plan
+    self.membership_type.split(":").first
+  end
+
+  def joined_as_member
+    self.created_at.strftime("%F").split("-").rotate.join('/')
+  end
+
+
 
 
 

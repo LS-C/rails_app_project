@@ -3,7 +3,9 @@
 
 <!-- Guest membership type -->
   <% if @guest.membership_type %>
-    <h3><%= @guest.membership_type %></h3>
+    <h3>Joined <%=@guest.joined_as_member%></h3>
+    <h3>Current Plan: <%= @guest.membership_plan %> Membership</h3>
+
   <% end %>
 
 <!-- List guest's reservations -->
