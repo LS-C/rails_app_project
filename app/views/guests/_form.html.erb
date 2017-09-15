@@ -1,8 +1,11 @@
 
 
 <%= form_for(@guest) do |f| %>
+<a href="http://www.merchantequip.com/information-center/credit-card-logos/"><img
+            src="https://www.merchantequip.com/images/logos/visa-mc-amex-184x38.gif" width="184" height="38"
+            alt="Merchant Equipment Store Credit Card Logos"/></a>
 
-
+<br>
 <p>Select Your Monthly Plan</p>
 <%= f.select :membership_type, options_for_select([["Silver: $50/month "], ["Gold: $90/month"], ["Platinum: $200/month"]]) %>
 

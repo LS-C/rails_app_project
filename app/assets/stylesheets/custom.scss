@@ -74,26 +74,32 @@ input.button {
 
 #myDiv
 {
-  height:350px;
-  width:500px;
-  margin-right:auto;
-  margin-left:auto;
-  text-align:center
+  height:370px;
+  width:538px;
+  // margin-right:auto;
+  // margin-left:auto;
+  text-align:left
 }
 
 .myDiv
 {
-  height:350px;
-  width:500px;
-  margin-right:auto;
-  margin-left:auto;
-  text-align:center
+  height:370px;
+  width:538px;
+  // margin-right:auto;
+  // margin-left:auto;
+  text-align:left
 }
 
 .hotel_show_page
 {
+  text-align:left
+}
+
+.center_align
+{
   text-align:center
 }
+
 
 #hotel_profile_pics {
     background-color:#cae8bb;
@@ -101,4 +107,9 @@ input.button {
     -moz-border-radius: 15px;
     border-radius: 5px;
     padding-bottom: 40px;
+
+hr {
+	height: 6px;
+	background: url(http://ibrahimjabbari.com/english/images/hr-11.png) repeat-x 0 0;
+    border: 0;
 }
