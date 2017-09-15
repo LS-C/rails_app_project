@@ -4,7 +4,9 @@
 <!-- Guest membership type -->
 <% if @reservations.empty? %>
   <% if @guest.membership_type %>
-    <h3><%= @guest.membership_type %></h3>
+    <h3>Joined <%=@guest.joined_as_member%></h3>
+    <h3>Current Plan: <%= @guest.membership_plan %> Membership</h3>
+
   <% end %>
   <p><h4><%= link_to "Book a hotel", hotels_path %></h4></p><br>
 

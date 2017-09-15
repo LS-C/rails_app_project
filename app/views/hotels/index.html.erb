@@ -1,25 +1,24 @@
 <h2> Check out all our partner hotels... </h2>
 
 <% @hotels.each do |hotel| %>
-<ul type="disc">
-  <li>
-  <%= link_to hotel.name, hotel_path(hotel) %>
-  </li>
-</ul>
-<% end %>
 
-
-<% @hotels.each do |hotel| %>
+<div id="hotel_profile_pics">
 
 <div class="container1">
-
+<img src="/assets/<%=hotel.profile_img%>" >
   <div class="hotel_index">
-  <%= image_tag("<%=hotel.profile_img%>", width: "320") %>
-    <h4 class="card-title">Kimpton NYC</h4>
-    <p class="card-text">Honoring our artful Chelsea address, Kimpton Hotel Eventi has stylishly revamped the first floor — which occupies an entire city block. The result? Three new restaurants led by award-winning chefs, two buzzing new bars and one new lobby that’s more like a warm-yet-vogue living room. </p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <h4 class="card-title"><%=hotel.name %></h4>
+    <p class="card-text"><%=hotel.description %></p>
+    <a href="/hotels/<%=hotel.id%>" class="btn btn-primary">More info </a>
   </div>
 </div>
 
+<br>
+<br>
 
+</div>
+
+<br>
+<br>
 <% end %>
+
