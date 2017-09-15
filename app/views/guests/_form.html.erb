@@ -33,6 +33,12 @@
 </br>
 </br>
 
+  <%= f.label :cc_exp_date, 'Expiration Date (MM/YY): ' %> <br>
+  <%= f.text_field :cc_exp_date %>
+
+</br>
+</br>
+
 
   <%= f.label :cc_ccv_code, 'CCV code: ' %> <br>
   <%= f.text_field :cc_ccv_code %>
@@ -42,14 +48,6 @@
 
   <%= f.label :name_on_card, 'Name on Card: ' %> <br>
   <%= f.text_field :name_on_card %>
-
-</br>
-</br>
-
-<p>
-  <%= f.label :cc_exp_date, 'Expiration date' %><br />
-  <%= f.date_select :cc_exp_date, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :use_month_numbers => true %>
-</p>
 
 </br>
 </br>
