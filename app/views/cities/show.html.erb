@@ -1,9 +1,19 @@
-<h2><%= @city.name %><span class="glyphicon glyphicon-map-marker"</span></h2>
+<div class="center_align">
 
-<% @hotels.each do |hotel| %>
-  <ul type="disc">
-    <li>
-    <p><%= link_to hotel.name,  city_hotel_path(@city, hotel)%></p>
-    </li>
-  </ul>
+<h2><%= @city.name %><br><br>
+  <span class="glyphicon glyphicon-map-marker"</span></h2>
+
+  <% @hotels.each do |hotel| %>
+
+      <p><%= link_to hotel.name,  city_hotel_path(@city, hotel)%></p>
+
+  <% end %>
+
+
+<% @cities.find do |city| %>
+  <% if city = @city%>
+    <img src="/assets/<%=city.image_url%>">
+  <% end %>
 <% end %>
+
+</div>
