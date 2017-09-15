@@ -49,6 +49,7 @@ class GuestsController < ApplicationController
     @guest = Guest.find(session[:guest_id])
     @guest.update(payment_params)
     if @guest.save
+        flash[:success] = "Welcome "
         redirect_to @guest
       else
         render :payment
@@ -66,11 +67,11 @@ class GuestsController < ApplicationController
   end
 
   def payment_params
-    params.require(:guest).permit(:membership_type, :cc_type, :name_on_card, :credit_card, :cc_exp_date)
+    params.require(:guest).permit(:membership_type, :cc_type, :name_on_card, :cc_ccv_code, :credit_card, :cc_exp_date)
   end
 
   def guest_update_params
-    params.require(:guest).permit(:name, :email, :password, :password_confirmation, :name_on_card, :credit_card, :cc_exp_date)
+    params.require(:guest).permit(:name, :email, :password, :password_confirmation, :name_on_card, :cc_ccv_code, :credit_card, :cc_exp_date)
   end
 
 end

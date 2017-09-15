@@ -6,23 +6,18 @@ class Guest < ApplicationRecord
 
   validates :name, presence: true
   validates :email, uniqueness: true
-  validates_confirmation_of :password, :message => "Your password does not match."
+  validates_confirmation_of :password
 
-  # validates :name_on_card, presence: true
-  # validates :cc_type, presence: true
+  validates :cc_type, presence: true, on: :update
+  validates :membership_type, presence: true, on: :update
+  validates :credit_card, length: { is: 16 }, on: :update
+  validates :cc_exp_date, presence: true, on: :update
+  validates :cc_ccv_code, length: { is: 3 }, on: :update
 
+  validates :name_on_card, presence: true, on: :update
 
-  # validates :membership_type, presence: true
-  # validates :credit_card, length: { is: 16 }
-  # validates :cc_exp_date, presence: true
 
   has_secure_password
-
-
-
-
-
-
 
 
   # def list_hotel_info(reservation_info)

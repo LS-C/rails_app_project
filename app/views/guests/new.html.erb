@@ -1,13 +1,25 @@
 <h1> New Guest </h1><br>
 
+
 <%= form_for(@guest) do |f| %>
+
+
+<% if @guest.errors.any? %>
+<ul>
+  <% @guest.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+
+
   <%= f.label :name, 'Full Name: ' %>
   <%= f.text_field :name %>
 
 </br>
 </br>
 
-  <b><%= f.label :email, 'Email: ' %></b>
+  <%= f.label :email, 'Email: ' %>
   <%= f.text_field :email %>
 
 </br>
@@ -32,3 +44,4 @@
   <%= link_to "Already A User? Sign In Here!", signin_path %>
 
 <% end %>
+

@@ -1,5 +1,10 @@
 <!-- Greeting -->
-<h2><b>Nice to see you, <%=@guest.name%>.</b><h2>
+
+<% if flash[:success].present? %>
+      <h2><%= flash[:success] %><%=@guest.name.capitalize%>!</h2>
+      <% else %>
+      <h2><b>Nice to see you, <%=@guest.name.capitalize%>.</b><h2>
+  <% end %>
 
 <!-- Guest membership type -->
 <% if @reservations.empty? %>

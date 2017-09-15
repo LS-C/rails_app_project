@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20170915142117) do
     t.string "membership_type"
     t.string "credit_card"
     t.string "cc_exp_date"
+    t.string "cc_ccv_code"
   end
 
   create_table "hotels", force: :cascade do |t|

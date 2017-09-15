@@ -6,6 +6,16 @@
             alt="Merchant Equipment Store Credit Card Logos"/></a>
 
 <br>
+<br>
+<br>
+  <% if @guest.errors.any? %>
+    <ul>
+      <% @guest.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
 <p>Select Your Monthly Plan</p>
 <%= f.select :membership_type, options_for_select([["Silver: $50/month "], ["Gold: $90/month"], ["Platinum: $200/month"]]) %>
 
@@ -23,8 +33,9 @@
 </br>
 </br>
 
-  <%= f.label :cc_exp_date, 'Expiration Date: ' %> <br>
-  <%= f.text_field :cc_exp_date %>
+
+  <%= f.label :cc_ccv_code, 'CCV code: ' %> <br>
+  <%= f.text_field :cc_ccv_code %>
 
 </br>
 </br>
@@ -34,6 +45,15 @@
 
 </br>
 </br>
+
+<p>
+  <%= f.label :cc_exp_date, 'Expiration date' %><br />
+  <%= f.date_select :cc_exp_date, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :use_month_numbers => true %>
+</p>
+
+</br>
+</br>
+
 
   <%= f.submit "Make Payment" %><br><br>
 
