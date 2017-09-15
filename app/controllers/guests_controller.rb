@@ -1,3 +1,4 @@
+require 'active_support/time'
 class GuestsController < ApplicationController
   before_action :require_login, except: [:new, :create, :welcome]
 
