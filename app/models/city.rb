@@ -2,7 +2,6 @@ class City < ApplicationRecord
   has_many :hotels
 
 
-
   # def hotel_names
   #   city_hotels.map { |hotel| hotel.name }
 
