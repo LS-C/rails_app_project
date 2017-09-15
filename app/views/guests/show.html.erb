@@ -11,22 +11,27 @@
   <% if @guest.membership_type %>
     <h3>Joined <%=@guest.joined_as_member%></h3>
     <h3>Current Plan: <%= @guest.membership_plan %> Membership</h3>
-
   <% end %>
-  <p><h4><%= link_to "Book a hotel", hotels_path %></h4></p><br>
+
+<a href="/hotels" class="btn btn-lg" style="background-color:#93FFE8; color:#000000; border:1px solid black">Book a hotel</a>
+
+  <hr>
 
 
 
 <!-- List guest's reservations -->
 <% else !@reservations.empty?  %>
   <% if @guest.membership_type %>
-    <h3><%= @guest.membership_type %></h3>
+    <h3>Joined <%=@guest.joined_as_member%></h3>
+    <h3>Current Plan: <%= @guest.membership_plan %> Membership</h3>
   <% end %>
 
-  <h3>Here's a snapshot of your upcoming trips and trip history... </h3>
-  <p><h4><%= link_to "Book a hotel", hotels_path %></h4></p>
+<a href="/hotels" class="btn btn-lg" style="background-color:#93FFE8; color:#000000; border:1px solid black">Book a hotel</a>
 
 <hr>
+
+<h3>Here's a snapshot of your upcoming trips and trip history... </h3>
+
 
 <!-- check if upcoming trip or past trip -->
       <% @reservations.each do |rsvp| %>
