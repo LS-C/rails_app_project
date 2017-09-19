@@ -1,3 +1,24 @@
+<h2> Check out all our partner hotels... </h2>
+
 <% @hotels.each do |hotel| %>
-<ul><%= link_to hotel.name, hotel_path(hotel) %></ul>
+
+<div id="hotel_profile_pics">
+
+<div class="container1">
+<img src="/assets/<%=hotel.profile_img%>" >
+  <div class="hotel_index">
+    <h4 class="card-title"><%=hotel.name %></h4>
+    <p class="card-text"><%=hotel.description %></p>
+    <a href="/hotels/<%=hotel.id%>" class="btn btn-lg btn-block" style="background-color:#93FFE8; color:#000000; border:1px solid black">More info </a>
+
+  </div>
+</div>
+
+
+<br>
+<hr>
+</div>
+
+
+
 <% end %>

@@ -1,0 +1,10 @@
+<%= simple_form_for @hotel :html => { :multipart => true } do |f| %>
+    <%= select_tag :city_id, options_for_select(@cities), prompt => "Select a City") %>
+    <%= f.input :name, label: "Hotel Name" %>
+    <%= f.input :description %>
+    <%= f.input :address %>
+    <%= f.input :tel %>
+    <%= f.button :submit %>
+
+
+<% end %>

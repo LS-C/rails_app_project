@@ -1,9 +1,12 @@
-<h1> Sign In </h1>
+<h1> Sign In </h1><br>
 
-<%= form_for Guest.new do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :password %>
-  <%= f.text_field :password %>
-  <%= f.submit "Sign In" %>
-<%end %>
+<%= form_tag signin_path do %>
+  <label>Name:</label><br>
+  <%= text_field_tag :name %><br>
+
+  <label>Password:</label><br>
+  <%= password_field_tag :password %><br><br>
+
+  <%= submit_tag "Sign In" %><br><br>
+  <%= link_to "New User? Sign Up!", new_guest_path %>
+<% end %>

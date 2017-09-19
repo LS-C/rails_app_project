@@ -1,20 +1,47 @@
-<h1> New Guest </h1>
+<h1> New Guest </h1><br>
+
 
 <%= form_for(@guest) do |f| %>
-  <%= f.label :name %>
+
+
+<% if @guest.errors.any? %>
+<ul>
+  <% @guest.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+
+
+  <%= f.label :name, 'Full Name: ' %>
   <%= f.text_field :name %>
 
 </br>
-
-  <%= f.label :password %>
-  <%= f.text_field :password %>
-
 </br>
 
-  <%= f.label :password_confirmation %>
-  <%= f.text_field :password_confirmation %>
+  <%= f.label :email, 'Email: ' %>
+  <%= f.text_field :email %>
 
-  </br>
+</br>
+</br>
 
-  <%= f.submit %>
+  <%= f.label :password, 'Password: ' %>
+  <%= f.password_field :password, autocomplete: "off",
+    placeholder: raw("&bull;")%>
+
+</br>
+</br>
+
+  <%= f.label :password_confirmation, 'Confirm Password: '  %>
+  <%= f.password_field :password_confirmation, autocomplete: "off",
+    placeholder: raw("&bull;")%>
+
+</br>
+</br>
+
+  <%= f.submit "Sign up" %><br><br>
+
+  <%= link_to "Already A User? Sign In Here!", signin_path %>
+
 <% end %>
+

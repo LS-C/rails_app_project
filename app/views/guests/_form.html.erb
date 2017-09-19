@@ -1,0 +1,62 @@
+
+
+<%= form_for(@guest) do |f| %>
+<a href="http://www.merchantequip.com/information-center/credit-card-logos/"><img
+            src="https://www.merchantequip.com/images/logos/visa-mc-amex-184x38.gif" width="184" height="38"
+            alt="Merchant Equipment Store Credit Card Logos"/></a>
+
+<br>
+<br>
+<br>
+  <% if @guest.errors.any? %>
+    <ul>
+      <% @guest.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+<p>Select Your Monthly Plan</p>
+<%= f.select :membership_type, options_for_select([["Silver: $50/month "], ["Gold: $90/month"], ["Platinum: $200/month"]]) %>
+
+</br>
+</br>
+<p>Credit Card Type</p>
+<%= f.select :cc_type, options_for_select([["Visa"], ["MasterCard"], ["Amex"]]) %>
+
+</br>
+</br>
+
+  <%= f.label :credit_card, 'Credit Card Number: ' %> <br>
+  <%= f.text_field :credit_card %>
+
+</br>
+</br>
+
+  <%= f.label :cc_exp_date, 'Expiration Date (MM/YY): ' %> <br>
+  <%= f.text_field :cc_exp_date %>
+
+</br>
+</br>
+
+
+  <%= f.label :cc_ccv_code, 'CCV code: ' %> <br>
+  <%= f.text_field :cc_ccv_code %>
+
+</br>
+</br>
+
+  <%= f.label :name_on_card, 'Name on Card: ' %> <br>
+  <%= f.text_field :name_on_card %>
+
+</br>
+</br>
+
+
+  <%= f.submit "Make Payment" %><br><br>
+
+
+
+  <%= link_to "Already A User? Sign In Here!", signin_path %>
+
+<% end %>

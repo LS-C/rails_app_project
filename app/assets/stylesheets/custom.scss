@@ -1,0 +1,117 @@
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+body, html {
+    height: 100%;
+    line-height: 1.8;
+}
+
+
+/* unvisited link */
+a:link {
+    color: #blue;
+}
+
+/* visited link */
+a:visited {
+    color: gray;
+}
+
+/* mouse over link */
+a:hover {
+    color: gray;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}
+
+
+div.reservation {
+    background-color: #B6B6B4;
+    color: white;
+    margin: 20px 0 20px 0;
+    padding: 20px;
+}
+
+input.button {
+  background-color: black;
+}
+
+.container1 {
+  display:flex;
+  justify-content:center;
+  padding-top: 50px;
+}
+
+.first, .third {
+  width:200px;
+  border: 1.25px solid black;
+  padding: 20px;
+  margin:10px;
+  box-shadow: 10px 10px 5px grey;
+
+}
+.second {
+  width:200px;
+  border: 1.25px solid black;
+  padding: 20px;
+  margin:10px;
+  box-shadow: 10px 10px 5px grey;
+}
+
+.hotel_index {
+  width:400px;
+  border: 1px solid black;
+  padding: 20px;
+  margin:10px;
+  box-shadow: 10px 10px 5px grey;
+}
+
+.welcome_pg
+{
+  text-align:center
+}
+
+
+#myDiv
+{
+  height:370px;
+  width:538px;
+  // margin-right:auto;
+  // margin-left:auto;
+  text-align:left
+}
+
+.myDiv
+{
+  height:370px;
+  width:538px;
+  // margin-right:auto;
+  // margin-left:auto;
+  text-align:left
+}
+
+.hotel_show_page
+{
+  text-align:left
+}
+
+.center_align
+{
+  text-align:center
+}
+
+
+#hotel_profile_pics {
+    background-color:white;
+    border-color:#000;
+    -moz-border-radius: 15px;
+    border-radius: 5px;
+    padding-bottom: 40px;
+}
+
+hr {
+	height: 6px;
+	background: url(http://ibrahimjabbari.com/english/images/hr-11.png) repeat-x 0 0;
+    border: 0;
+}

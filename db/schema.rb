@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170911205209) do
+ActiveRecord::Schema.define(version: 20170915152719) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_url"
   end
 
   create_table "guests", force: :cascade do |t|
@@ -23,6 +24,13 @@ ActiveRecord::Schema.define(version: 20170911205209) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.string "email"
+    t.string "name_on_card"
+    t.string "cc_type"
+    t.string "membership_type"
+    t.string "credit_card"
+    t.string "cc_exp_date"
+    t.string "cc_ccv_code"
   end
 
   create_table "hotels", force: :cascade do |t|
@@ -31,6 +39,10 @@ ActiveRecord::Schema.define(version: 20170911205209) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "description"
+    t.string "address"
+    t.string "tel"
+    t.string "image_url"
+    t.string "profile_img"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -38,12 +50,18 @@ ActiveRecord::Schema.define(version: 20170911205209) do
     t.integer "guest_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "start"
+    t.datetime "end"
+    t.string "room_type"
+    t.string "guest_name"
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.string "reservation_id"
+    t.integer "reservation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
+    t.string "content"
   end
 
 end

@@ -1,14 +1,68 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>HotelAppMod2</title>
-    <%= csrf_meta_tags %>
+<html lang="en">
+<head>
+  <title>Suite Spot</title>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-  <body>
-    <%= yield %>
-  </body>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,600i,700,900" rel="stylesheet">
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+
+  <link rel="stylesheet" type="text/css" href="application.css">
+
+</head>
+<body>
+
+<nav class="navbar navbar-light" style="background-color:#93FFE8; color:#000000">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="/"><b>Suite Spot <span class="glyphicon glyphicon-sunglasses"></span></b></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <% if logged_in? %>
+        <li><a href="<%= guest_path(session[:guest_id]) %>">Profile</a></li>
+      <% else %>
+        <li><a href="/">Welcome!</a></li>
+      <% end %>
+
+      <li><a href="<%= hotels_path %>">All Hotels</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Cities <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+        <% City.all.each do |city| %>
+          <li>
+            <%= link_to city.name, city_path(city) %>
+          </li>
+          <%end%>
+        </ul>
+      </li>
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+
+      <% if logged_in? %>
+        <li><a href="<%= logout_path %>"><span class="glyphicon glyphicon-user"></span> Logout </a></li>
+      <% else %>
+        <li><a href="<%= new_guest_path %>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="<%= signin_path %>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <% end %>
+
+    </ul>
+  </div>
+</nav>
+
+
+
+<!-- content -->
+<div class="container"  role="main">
+  <%= yield %>
+</div>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
 </html>

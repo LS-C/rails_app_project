@@ -1,5 +1,50 @@
-<h2><%= @hotel.name %></h2>
-<p><%= @hotel.description %></p>
+<div class="col-xs-6">
+  <div class="hotel_show_page">
+
+    <h2><b><%= @hotel.name %></b></h2>
+    <h3><%= @hotel.city.name  %><span class="glyphicon glyphicon-map-marker"></span></h3><br>
+      <div id="myDiv">
+        <%= image_tag(@hotel.image_url, size: "4.76 x 5.74", :alt => "rss feed", :class => "myDiv") %></br>
+      </div><br>
 
 
-<%= link_to 'Book this hotel', hotel_reservations_path(@hotel) %>
+  <%= form_tag new_reservation_path do %>
+    <%= hidden_field_tag :hotel_id, @hotel.id %>
+    <button type="submit" class="btn btn-lg btn-block" style="background-color:#93FFE8; color:#000000; border:1px solid black">Book this hotel</button>
+
+  <%end %></br>
+</div>
+</div>
+
+<div class="col-xs-6">
+
+  <h2>Most Recent Reviews... <span class="glyphicon glyphicon-pencil"></span></h2><br>
+    <% if !@all_content.empty? %>
+      <% @all_content.each do |c| %>
+        <font color="gray"><i>"<%= c %>"</i></br></br>
+      <% end %>
+    <% else %>
+      <p><i>Uh oh, we're a little short on reviews for this hotel...</i></p>
+    <% end %>
+
+
+
+
+<hr><br>
+  <div class="container-fluid" style="background-color:#B6B6B4; border:1px solid black; box-shadow: 10px 10px 5px grey">
+
+    <font color="white">
+     <div class="center_align">
+        <h1><span class="glyphicon glyphicon-sunglasses"></span>
+        <span class="glyphicon glyphicon-sunglasses"></span>
+        <span class="glyphicon glyphicon-sunglasses"></span></h1>
+      </div>
+    <p><%= @hotel.description %></p>
+    </br>
+
+    <p><b>Address: </b><%= @hotel.address %></p>
+    <p><b>Tel: </b><%= @hotel.tel %></p></font>
+
+
+
+</div>

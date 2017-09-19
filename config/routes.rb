@@ -1,13 +1,24 @@
 Rails.application.routes.draw do
   resources :reviews
-  resources :cities
+  resources :cities do
+    resources :hotels
+  end
   resources :reservations
   resources :guests
-  resources :hotels, only: [:show, :index] do
-    get 'reservations', as: 'reservations'
-  end
+  resources :hotels
+
+
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
-  post '/logout', to: 'sessions#destroy'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/logout', to: 'sessions#destroy'
+  post '/reservations/new', to: 'reservations#new'
+  post '/reviews/new', to: 'reviews#new'
+
+  post '/reservations/:id/edit', to: 'reservations#edit'
+
+  root :to => 'guests#welcome'
+
+  post '/guests/payment', :to => 'guests#payment'
+
+  # patch '/reservation', to: 'reservations#new', as: 'reservation'
 end

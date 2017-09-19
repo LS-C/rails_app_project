@@ -1,5 +1,73 @@
-<h2>Welcome <%=@guest.name%>!<h2>
+<!-- Greeting -->
 
-<p><%= link_to "Book a hotel", hotels_path %></p>
+<% if flash[:success].present? %>
+      <h2><%= flash[:success] %><%=@guest.name.capitalize%>!</h2>
+      <% else %>
+      <h2><b>Nice to see you, <%=@guest.name.capitalize%>.</b><h2>
+  <% end %>
 
-<!-- logout -->
+<!-- Guest membership type -->
+<% if @reservations.empty? %>
+  <% if @guest.membership_type %>
+    <h3>Joined <%=@guest.joined_as_member%></h3>
+    <h3>Current Plan: <%= @guest.membership_plan %> Membership</h3>
+  <% end %>
+
+<a href="/hotels" class="btn btn-lg" style="background-color:#93FFE8; color:#000000; border:1px solid black">Book a hotel</a>
+
+  <hr>
+
+
+
+<!-- List guest's reservations -->
+<% else !@reservations.empty?  %>
+  <% if @guest.membership_type %>
+    <h3>Joined <%=@guest.joined_as_member%></h3>
+    <h3>Current Plan: <%= @guest.membership_plan %> Membership</h3>
+  <% end %>
+
+<a href="/hotels" class="btn btn-lg" style="background-color:#93FFE8; color:#000000; border:1px solid black">Book a hotel</a>
+
+<hr>
+
+<h3>Here's a snapshot of your upcoming trips and trip history... </h3>
+
+
+<!-- check if upcoming trip or past trip -->
+      <% @reservations.each do |rsvp| %>
+          <% if rsvp.start > DateTime.now %>
+
+<!-- here are the upcoming trips; guest can edit reservation -->
+          <h3>Upcoming Trips <span class="glyphicon glyphicon-ok"></span></h3>
+            <div class="reservation">
+            <p>Hotel: <%= rsvp.hotel.name %></p>
+            <p>City: <%= rsvp.hotel.city.name %></p>
+
+            <p>Check-in Date: <%= rsvp.start.to_date%></p>
+            <p>Check-Out Date: <%= rsvp.end.to_date%></p>
+
+              <%= form_tag edit_reservation_path(rsvp) do %>
+                <%= hidden_field_tag :reservation_id, rsvp.id %>
+                <input class="button" type="submit" value="Edit your reservation">
+              <% end %>
+            </div>
+
+            <% else %>
+          <h3>Past Trips <span class="glyphicon glyphicon-ok"></span></h3>
+              <div class="reservation">
+              <p>Hotel: <%= rsvp.hotel.name %></p>
+              <p>City: <%= rsvp.hotel.city.name %></p>
+
+              <p>Check-in Date: <%= rsvp.start.to_date%></p>
+              <p>Check-Out Date: <%= rsvp.end.to_date%></p>
+                <%= form_tag new_review_path do %>
+                  <%= hidden_field_tag :reservation_id, rsvp.id %>
+                  <input class="button" type="submit" value="Review this hotel">
+                <% end %>
+                </div>
+            <% end%>
+          <% end %>
+
+
+
+    <% end %>
